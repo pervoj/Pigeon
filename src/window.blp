@@ -1,0 +1,25 @@
+using Gtk 4.0;
+
+template PigeonWindow : Gtk.ApplicationWindow {
+  default-width: 600;
+  default-height: 300;
+
+  [titlebar]
+  Gtk.HeaderBar {
+    [end]
+    Gtk.MenuButton {
+      icon-name: "open-menu-symbolic";
+      menu-model: main_menu;
+    }
+  }
+
+  Gtk.Label label {
+    label: "Hello, World!";
+  }
+}
+
+menu main_menu {
+  item (_("_Preferences"), "app.preferences")
+  item (_("_Keyboard Shortcuts"), "win.show-help-overlay")
+  item (_("_About pigeon"), "app.about")
+}

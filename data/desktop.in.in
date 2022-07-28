@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Pigeon
+Comment=No description
+Exec=@GETTEXT_PACKAGE@
+Icon=@APP_ID@
+Terminal=false
+Type=Application
+Categories=GTK;Network;Development;Utility;
+StartupNotify=true

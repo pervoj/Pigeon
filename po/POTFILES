@@ -1,0 +1,7 @@
+data/app.drey.Pigeon.desktop.in
+data/app.drey.Pigeon.appdata.xml.in
+data/app.drey.Pigeon.gschema.xml
+src/window.ui
+src/main.vala
+src/window.vala
+
