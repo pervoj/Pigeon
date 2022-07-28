@@ -7,9 +7,9 @@
   <content_rating type="oars-1.1" />
 
   <name>Pigeon</name>
-  <summary>No description</summary>
+  <summary>Easily test your APIs</summary>
   <description>
-    <p>No description</p>
+    <p>Working on an API for your new project? Pigeon can help you debug and test your APIs.</p>
   </description>
 
   <screenshots>

@@ -1,6 +1,6 @@
 # Pigeon
 
-**No description**
+**Easily test your APIs**
 
 <!--
 <p>
@@ -17,7 +17,8 @@
 
 ---
 
-No description
+Working on an API for your new project? Pigeon can help you debug and test your
+APIs.
 
 ## ⚙️ Installing
 
