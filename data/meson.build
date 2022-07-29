@@ -1,6 +1,6 @@
 desktop_file = i18n.merge_file(
   input: configure_file(
-    input: 'desktop.in.in',
+    input: '@0@.desktop.in.in'.format(meson.project_name()),
     output: '@0@.desktop.in'.format(app_id),
     configuration: config_data
   ),
@@ -21,7 +21,7 @@ endif
 
 appstream_file = i18n.merge_file(
   input: configure_file(
-    input: 'appdata.xml.in.in',
+    input: '@0@.appdata.xml.in.in'.format(meson.project_name()),
     output: '@0@.appdata.xml.in'.format(app_id),
     configuration: config_data
   ),
@@ -41,7 +41,7 @@ endif
 
 install_data(
   configure_file(
-    input: 'gschema.xml.in',
+    input: '@0@.gschema.xml.in'.format(meson.project_name()),
     output: '@0@.gschema.xml'.format(app_id),
     configuration: config_data
   ),
