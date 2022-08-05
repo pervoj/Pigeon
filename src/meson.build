@@ -1,5 +1,7 @@
 sources = [
   'application.vala',
+  'request.vala',
+  'response.vala',
   'window.vala',
 ]
 
