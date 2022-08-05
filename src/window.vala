@@ -16,14 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-namespace Pigeon {
-    [GtkTemplate (ui = "/app/drey/Pigeon/window.ui")]
-    public class Window : Gtk.ApplicationWindow {
-        [GtkChild]
-        private unowned Gtk.Label label;
+[GtkTemplate (ui = "/app/drey/Pigeon/window.ui")]
+public class Pigeon.Window : Gtk.ApplicationWindow {
+    [GtkChild]
+    private unowned Gtk.Label label;
 
-        public Window (Gtk.Application app) {
-            Object (application: app);
-        }
+    public Window (Gtk.Application app) {
+        Object (application: app);
     }
 }
