@@ -17,22 +17,37 @@
  */
 
 using Gtk 4.0;
+using Adw 1;
 
-template PigeonWindow : Gtk.ApplicationWindow {
+template PigeonWindow : Adw.ApplicationWindow {
+  title: _("Pigeon");
   default-width: 600;
   default-height: 300;
 
-  [titlebar]
-  Gtk.HeaderBar {
-    [end]
-    Gtk.MenuButton {
-      icon-name: "open-menu-symbolic";
-      menu-model: main_menu;
-    }
-  }
+  Adw.ToastOverlay toast_overlay {
+    Gtk.Box {
+      orientation: vertical;
+      spacing: 0;
 
-  Gtk.Label label {
-    label: "Hello, World!";
+      Adw.HeaderBar {
+        [end]
+        Gtk.MenuButton {
+          icon-name: "open-menu-symbolic";
+          menu-model: main_menu;
+        }
+
+        [end]
+        Gtk.Button new_tab_btn {
+          icon-name: "tab-new-symbolic";
+        }
+      }
+
+      Adw.TabBar {
+        view: tab_view;
+      }
+
+      Adw.TabView tab_view {}
+    }
   }
 }
 

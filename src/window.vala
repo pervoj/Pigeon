@@ -17,11 +17,30 @@
  */
 
 [GtkTemplate (ui = "/app/drey/Pigeon/window.ui")]
-public class Pigeon.Window : Gtk.ApplicationWindow {
+public class Pigeon.Window : Adw.ApplicationWindow {
     [GtkChild]
-    private unowned Gtk.Label label;
+    private unowned Adw.TabView tab_view;
 
-    public Window (Gtk.Application app) {
+    [GtkChild]
+    private unowned Gtk.Button new_tab_btn;
+
+    public unowned Adw.TabView get_tab_view () {
+        return tab_view;
+    }
+
+    public Window (Gtk.Application app, bool create_tab = true) {
         Object (application: app);
+
+        tab_view.create_window.connect (() => {
+            var win = new Window (app, false);
+            win.present ();
+            return win.get_tab_view ();
+        });
+
+        new_tab_btn.clicked.connect (() => {
+            tab_view.append (new Gtk.Label ("TAB")).title = "TAB";
+        });
+
+        if (create_tab) tab_view.append (new Gtk.Label ("TAB")).title = "TAB";
     }
 }
