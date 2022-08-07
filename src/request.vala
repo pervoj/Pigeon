@@ -24,15 +24,11 @@ public class Pigeon.Request : Object {
 
     private Cancellable cancellable = new Cancellable ();
     public string method { get; set; default = "GET"; }
-    public Uri uri { get; construct; }
-
-    public Request (Uri uri) {
-        Object (uri: uri);
-    }
+    public string url { get; set; default = "https://www.gnome.org/"; }
 
     public Response send () throws Error {
         var session = new Soup.Session ();
-        var message = new Soup.Message.from_uri (method, uri);
+        var message = new Soup.Message (method, url);
         var response = session.send_and_read (message, cancellable);
         return new Response (response, session, message);
     }

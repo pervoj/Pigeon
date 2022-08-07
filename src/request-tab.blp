@@ -33,10 +33,17 @@ template PigeonRequestTab : Adw.Bin {
 
         Gtk.DropDown method_dropdown {}
 
-        Gtk.Entry uri_entry {
+        Gtk.Entry url_entry {
           halign: fill;
           hexpand: true;
         }
+      }
+
+      Gtk.Button send_btn {
+        styles ["pill", "suggested-action"]
+        label: _("Send");
+        halign: center;
+        margin-top: 12;
       }
     }
   }

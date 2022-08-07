@@ -21,13 +21,40 @@ public class Pigeon.RequestTab : Adw.Bin {
     public string title { get; set; default = ""; }
 
     [GtkChild]
-    private unowned Gtk.Entry uri_entry;
+    private unowned Gtk.Entry url_entry;
 
     [GtkChild]
     private unowned Gtk.DropDown method_dropdown;
 
+    [GtkChild]
+    private unowned Gtk.Button send_btn;
+
     public RequestTab () {
-        bind_property ("title", uri_entry, "text", BindingFlags.BIDIRECTIONAL);
+        bind_property ("title", url_entry, "text", BindingFlags.BIDIRECTIONAL);
+
         method_dropdown.model = new Gtk.StringList (Request.methods);
+
+        send_btn.clicked.connect (send);
+    }
+
+    private void send () {
+        try {
+            if (!Uri.is_valid (url_entry.text, UriFlags.NONE)) return;
+        } catch {
+            return;
+        }
+
+        try {
+            var request = new Request ();
+            request.url = url_entry.text;
+            request.method = Request.methods[method_dropdown.selected];
+            send_btn.sensitive = false;
+
+            var response = request.send ();
+            print ("%s\n", (string) response.get_bytes ().get_data ());
+            send_btn.sensitive = true;
+        } catch (Error e) {
+            critical ("%s\n", e.message);
+        }
     }
 }
