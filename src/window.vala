@@ -37,10 +37,23 @@ public class Pigeon.Window : Adw.ApplicationWindow {
             return win.get_tab_view ();
         });
 
-        new_tab_btn.clicked.connect (() => {
-            tab_view.append (new Gtk.Label ("TAB")).title = "TAB";
-        });
+        new_tab_btn.clicked.connect (this.create_tab);
 
-        if (create_tab) tab_view.append (new Gtk.Label ("TAB")).title = "TAB";
+        if (create_tab) this.create_tab ();
+    }
+
+    private void create_tab () {
+        var entry = new Gtk.Entry ();
+        var tab = tab_view.append (entry);
+        entry.bind_property ("text", tab, "title", BindingFlags.SYNC_CREATE,
+            (binding, from_value, ref to_value) => {
+                if (from_value.get_string () == "") {
+                    to_value.set_string (_("Untitled Request"));
+                } else {
+                    to_value.set_string (from_value.get_string ());
+                }
+                return true;
+            }
+        );
     }
 }
