@@ -1,4 +1,4 @@
-/* request.vala
+/* request-tab.blp
  *
  * Copyright 2022 Vojtěch Perník
  *
@@ -16,28 +16,28 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Pigeon.Request : Object {
-    public const string[] methods = {
-        "GET",
-        "POST"
-    };
+using Gtk 4.0;
+using Adw 1;
 
-    private Cancellable cancellable = new Cancellable ();
-    public string method { get; set; default = "GET"; }
-    public Uri uri { get; construct; }
+template PigeonRequestTab : Adw.Bin {
+  Adw.Clamp {
+    maximum-size: 400;
+    tightening-threshold: 300;
 
-    public Request (Uri uri) {
-        Object (uri: uri);
+    Gtk.Box {
+      orientation: vertical;
+      spacing: 12;
+
+      Gtk.Box {
+        styles ["linked"]
+
+        Gtk.DropDown method_dropdown {}
+
+        Gtk.Entry uri_entry {
+          halign: fill;
+          hexpand: true;
+        }
+      }
     }
-
-    public Response send () throws Error {
-        var session = new Soup.Session ();
-        var message = new Soup.Message.from_uri (method, uri);
-        var response = session.send_and_read (message, cancellable);
-        return new Response (response, session, message);
-    }
-
-    public void cancel () {
-        cancellable.cancel ();
-    }
+  }
 }

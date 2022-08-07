@@ -43,9 +43,22 @@ public class Pigeon.Window : Adw.ApplicationWindow {
     }
 
     private void create_tab () {
-        var entry = new Gtk.Entry ();
-        var tab = tab_view.append (entry);
-        entry.bind_property ("text", tab, "title", BindingFlags.SYNC_CREATE,
+        var scrolled_window = new Gtk.ScrolledWindow ();
+        var viewport = new Gtk.Viewport (null, null);
+        scrolled_window.child = viewport;
+
+        var page = new RequestTab ();
+        viewport.child = page;
+        int margin = 10;
+
+        var tab = tab_view.append (scrolled_window);
+
+        page.margin_top = margin;
+        page.margin_end = margin;
+        page.margin_bottom = margin;
+        page.margin_start = margin;
+
+        page.bind_property ("title", tab, "title", BindingFlags.SYNC_CREATE,
             (binding, from_value, ref to_value) => {
                 if (from_value.get_string () == "") {
                     to_value.set_string (_("Untitled Request"));

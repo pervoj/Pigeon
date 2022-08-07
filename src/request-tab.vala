@@ -1,4 +1,4 @@
-/* request.vala
+/* request-tab.vala
  *
  * Copyright 2022 Vojtěch Perník
  *
@@ -16,28 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-public class Pigeon.Request : Object {
-    public const string[] methods = {
-        "GET",
-        "POST"
-    };
+[GtkTemplate (ui = "/app/drey/Pigeon/request-tab.ui")]
+public class Pigeon.RequestTab : Adw.Bin {
+    public string title { get; set; default = ""; }
 
-    private Cancellable cancellable = new Cancellable ();
-    public string method { get; set; default = "GET"; }
-    public Uri uri { get; construct; }
+    [GtkChild]
+    private unowned Gtk.Entry uri_entry;
 
-    public Request (Uri uri) {
-        Object (uri: uri);
-    }
+    [GtkChild]
+    private unowned Gtk.DropDown method_dropdown;
 
-    public Response send () throws Error {
-        var session = new Soup.Session ();
-        var message = new Soup.Message.from_uri (method, uri);
-        var response = session.send_and_read (message, cancellable);
-        return new Response (response, session, message);
-    }
-
-    public void cancel () {
-        cancellable.cancel ();
+    public RequestTab () {
+        bind_property ("title", uri_entry, "text", BindingFlags.BIDIRECTIONAL);
+        method_dropdown.model = new Gtk.StringList (Request.methods);
     }
 }

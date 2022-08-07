@@ -25,9 +25,12 @@ template PigeonWindow : Adw.ApplicationWindow {
   default-height: 300;
 
   Adw.ToastOverlay toast_overlay {
+    valign: fill;
+
     Gtk.Box {
       orientation: vertical;
       spacing: 0;
+      valign: fill;
 
       Adw.HeaderBar {
         [end]
@@ -47,7 +50,10 @@ template PigeonWindow : Adw.ApplicationWindow {
         view: tab_view;
       }
 
-      Adw.TabView tab_view {}
+      Adw.TabView tab_view {
+        valign: fill;
+        vexpand: true;
+      }
     }
   }
 }

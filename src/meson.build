@@ -3,11 +3,13 @@ sources = [
   'request.vala',
   'response.vala',
   'window.vala',
+  'request-tab.vala',
 ]
 
 
 blueprints_src = [
   'window.blp',
+  'request-tab.blp',
 ]
 
 
