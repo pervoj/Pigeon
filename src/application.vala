@@ -58,10 +58,19 @@ public class Pigeon.Application : Adw.Application {
 
     private void on_about_action () {
         string[] authors = { "Vojtěch Perník" };
-        Gtk.show_about_dialog (this.active_window,
-                               "program-name", "pigeon",
-                               "authors", authors,
-                               "version", "0.1.0");
+        Gtk.show_about_dialog (
+            this.active_window,
+            "program-name", _("Pigeon"),
+            "comments", _("Easily test your APIs"),
+            "logo-icon-name", Constants.APP_ID,
+            "copyright", _("Copyright \xc2\xa9 2022 Vojtěch Perník"),
+            "authors", authors,
+            // Translators: Here write your names, or leave it empty. Each name on new line. You can also add email (John Doe <j.doe@example.com>). Do not translate literally!
+            "translator-credits", _("translator-credits"),
+            "version", Constants.VERSION,
+            "license-type", Gtk.License.GPL_3_0,
+            "website", "https://gitlab.gnome.org/pervoj/Pigeon"
+        );
     }
 
     private void on_preferences_action () {

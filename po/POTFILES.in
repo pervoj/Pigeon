@@ -1,7 +1,8 @@
-data/app.drey.Pigeon.desktop.in
-data/app.drey.Pigeon.appdata.xml.in
-data/app.drey.Pigeon.gschema.xml
-src/window.ui
-src/main.vala
+data/pigeon.desktop.in.in
+data/pigeon.appdata.xml.in.in
+data/pigeon.gschema.xml.in
+src/application.vala
 src/window.vala
-
+src/window.blp
+src/response-tab.vala
+src/response-tab.blp
