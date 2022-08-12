@@ -4,5 +4,5 @@ data/pigeon.gschema.xml.in
 src/application.vala
 src/window.vala
 src/window.blp
-src/response-tab.vala
-src/response-tab.blp
+src/request-tab.vala
+src/request-tab.blp
