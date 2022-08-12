@@ -1,0 +1,87 @@
+# Czech translations for pigeon package.
+# Copyright (C) 2022 THE pigeon'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pigeon package.
+# Automatically generated, 2022.
+# Vojtěch Perník <translations@pervoj.cz>, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pigeon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-12 10:33+0200\n"
+"PO-Revision-Date: 2022-08-12 10:38+0200\n"
+"Last-Translator: Vojtěch Perník <translations@pervoj.cz>\n"
+"Language-Team: Czech <gnome-cs-list@gnome.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"X-Generator: Gtranslator 42.0\n"
+
+#: data/pigeon.desktop.in.in:3 data/pigeon.appdata.xml.in.in:9
+#: src/application.vala:63 src/window.blp:23
+msgid "Pigeon"
+msgstr "Pigeon"
+
+#: data/pigeon.desktop.in.in:4 data/pigeon.appdata.xml.in.in:10
+#: src/application.vala:64
+msgid "Easily test your APIs"
+msgstr "Snadné testování API"
+
+#: data/pigeon.appdata.xml.in.in:12
+msgid ""
+"Working on an API for your new project? Pigeon can help you debug and test "
+"your APIs."
+msgstr ""
+"Pracujete na rozhraní API pro svůj nový projekt? Pigeon vám pomůže s laděním "
+"a testováním rozhraní API."
+
+#: data/pigeon.appdata.xml.in.in:27
+msgid "First release"
+msgstr "První vydání"
+
+#: data/pigeon.appdata.xml.in.in:32
+msgid "Vojtěch Perník"
+msgstr "Vojtěch Perník"
+
+#: src/application.vala:66
+msgid "Copyright © 2022 Vojtěch Perník"
+msgstr "Copyright © 2022 Vojtěch Perník"
+
+#. Translators: Here write your names, or leave it empty. Each name on new line. You can also add email (John Doe <j.doe@example.com>). Do not translate literally!
+#: src/application.vala:69
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: src/window.vala:64
+msgid "Untitled Request"
+msgstr "Požadavek bez názvu"
+
+#: src/window.blp:45
+msgid "New panel"
+msgstr "Nový panel"
+
+#: src/window.blp:62
+msgid "_Preferences"
+msgstr "_Předvolby"
+
+#: src/window.blp:63
+msgid "_Keyboard Shortcuts"
+msgstr "_Klávesové zkratky"
+
+#: src/window.blp:64
+msgid "_About Pigeon"
+msgstr "_O aplikaci"
+
+#: src/window.blp:65
+msgid "_Quit"
+msgstr "_Ukončit"
+
+#: src/request-tab.blp:39
+msgid "Request URL"
+msgstr "Adresa URL požadavku"
+
+#: src/request-tab.blp:45
+msgid "Send"
+msgstr "Odeslat"
