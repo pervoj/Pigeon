@@ -1,2 +1,3 @@
 _build/
 subprojects/blueprint-compiler/
+po/pigeon.pot
