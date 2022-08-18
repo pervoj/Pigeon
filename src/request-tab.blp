@@ -9,43 +9,44 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.    See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.    If not, see <http://www.gnu.org/licenses/>.
  */
 
 using Gtk 4.0;
 using Adw 1;
 
 template PigeonRequestTab : Adw.Bin {
-  Adw.Clamp {
-    maximum-size: 400;
-    tightening-threshold: 300;
+    Adw.Clamp {
+        maximum-size: 400;
+        tightening-threshold: 300;
 
-    Gtk.Box {
-      orientation: vertical;
-      spacing: 12;
+        Gtk.Box {
+            orientation: vertical;
+            spacing: 12;
+            valign: center;
 
-      Gtk.Box {
-        styles ["linked"]
+            Gtk.Box {
+                styles ["linked"]
 
-        Gtk.DropDown method_dropdown {}
+                Gtk.DropDown method_dropdown {}
 
-        Gtk.Entry url_entry {
-          halign: fill;
-          hexpand: true;
-          placeholder-text: _("Request URL");
+                Gtk.Entry url_entry {
+                    halign: fill;
+                    hexpand: true;
+                    placeholder-text: _("Request URL");
+                }
+            }
+
+            Gtk.Button send_btn {
+                styles ["pill", "suggested-action"]
+                label: _("Send");
+                halign: center;
+                margin-top: 12;
+            }
         }
-      }
-
-      Gtk.Button send_btn {
-        styles ["pill", "suggested-action"]
-        label: _("Send");
-        halign: center;
-        margin-top: 12;
-      }
     }
-  }
 }
