@@ -49,14 +49,8 @@ public class Pigeon.Window : Adw.ApplicationWindow {
 
         var page = new RequestTab ();
         viewport.child = page;
-        int margin = 10;
 
         var tab = tab_view.append (scrolled_window);
-
-        page.margin_top = margin;
-        page.margin_end = margin;
-        page.margin_bottom = margin;
-        page.margin_start = margin;
 
         page.bind_property ("title", tab, "title", BindingFlags.SYNC_CREATE,
             (binding, from_value, ref to_value) => {

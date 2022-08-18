@@ -44,17 +44,20 @@ public class Pigeon.RequestTab : Adw.Bin {
             return;
         }
 
+        send_btn.sensitive = false;
+
         try {
+
             var request = new Request ();
             request.url = url_entry.text;
             request.method = Request.methods[method_dropdown.selected];
-            send_btn.sensitive = false;
 
             var response = request.send ();
             print ("%s\n", (string) response.get_bytes ().get_data ());
-            send_btn.sensitive = true;
         } catch (Error e) {
             critical ("%s\n", e.message);
         }
+
+        send_btn.sensitive = true;
     }
 }
