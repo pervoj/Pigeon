@@ -29,7 +29,11 @@ public class Pigeon.RequestTab : Adw.Bin {
     [GtkChild]
     private unowned Gtk.Button send_btn;
 
-    public RequestTab () {
+    private Gtk.Window parent_win;
+
+    public RequestTab (Gtk.Window parent_win) {
+        this.parent_win = parent_win;
+
         bind_property ("title", url_entry, "text", BindingFlags.BIDIRECTIONAL);
 
         method_dropdown.model = new Gtk.StringList (Request.methods);
@@ -41,6 +45,7 @@ public class Pigeon.RequestTab : Adw.Bin {
         try {
             if (!Uri.is_valid (url_entry.text, UriFlags.NONE)) return;
         } catch {
+            show_error_dialog (_("Error"), _("The URL is not valid!"));
             return;
         }
 
@@ -55,9 +60,25 @@ public class Pigeon.RequestTab : Adw.Bin {
             var response = request.send ();
             print ("%s\n", (string) response.get_bytes ().get_data ());
         } catch (Error e) {
-            critical ("%s\n", e.message);
+            show_error_dialog (_("Error"), e.message);
         }
 
         send_btn.sensitive = true;
+    }
+
+    private void show_error_dialog (
+        string title,
+        string? content = null
+    ) {
+        var dialog = new Gtk.MessageDialog.with_markup (
+            parent_win,
+            Gtk.DialogFlags.DESTROY_WITH_PARENT | Gtk.DialogFlags.MODAL,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.OK,
+            title
+        );
+        if (content != null) dialog.format_secondary_markup (content);
+        dialog.response.connect (() => { dialog.close (); });
+        dialog.present ();
     }
 }

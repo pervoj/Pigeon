@@ -47,7 +47,7 @@ public class Pigeon.Window : Adw.ApplicationWindow {
         var viewport = new Gtk.Viewport (null, null);
         scrolled_window.child = viewport;
 
-        var page = new RequestTab ();
+        var page = new RequestTab (this);
         viewport.child = page;
 
         var tab = tab_view.append (scrolled_window);
